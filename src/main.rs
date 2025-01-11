@@ -27,18 +27,16 @@ fn main() {
             continue;
         }
 
-        match extract_dicom(path) {
-            Ok(()) => {
-                counter += 1;
-            }
-            Err(e) => eprintln!("Error: {:?}", e),
-        }
+        extract_dicom(path)
+            .map(|_| counter += 1)
+            .map_err(|e| e.handle_error(path))
+            .ok();
     }
 
     println!("Total DICOM files processed: {}", counter);
 }
 
-/// extract_dicom file, read a file and get PatientName and PatientID
+/// extract_dicom file, read a file and Print PatientName and PatientID for this path
 fn extract_dicom(path: &Path) -> Result<(), AppError> {
     let object = open_file(path)?;
 
