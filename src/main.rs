@@ -37,6 +37,7 @@ fn main() {
         // Copy counter and console_loc(mutex)
         let thread_counter = Arc::clone(&counter);
         let thread_console_lock = Arc::clone(&console_lock);
+        let thread_console_lock1 = Arc::clone(&console_lock);
 
         // Create new thread
         let handle = thread::spawn(move || {
@@ -47,7 +48,7 @@ fn main() {
                         let mut counter = thread_counter.lock().unwrap();
                         *counter += 1;
                     }
-                    Err(e) => e.handle_error(&path),
+                    Err(e) => e.handle_error(&path, thread_console_lock1),
                 }
             }
         });
