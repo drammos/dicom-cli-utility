@@ -22,14 +22,14 @@ impl AppError {
             AppError::ReadError(_) => {
                 eprintln!("Warning: {} is not a valid DICOM file", path.display());
             }
-            AppError::AccessError(e) => {
-                eprintln!("Access error: {:?}", e);
+            AppError::AccessError(_) => {
+                eprintln!("Access error: , in the file {}", path.display());
             }
-            AppError::ConvertValueError(e) => {
-                eprintln!("Error converting value: {:?}", e);
+            AppError::ConvertValueError(_) => {
+                eprintln!("Error converting value: , in the file {}", path.display());
             }
-            AppError::AccessByNameError(e) => {
-                eprintln!("Error accessing by name: {:?}", e);
+            AppError::AccessByNameError(_) => {
+                eprintln!("Error accessing by name: , in the file {}", path.display());
             }
             AppError::NotFound => {
                 eprintln!("Item not found in DICOM file.");
