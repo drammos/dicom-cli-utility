@@ -75,7 +75,7 @@ The utility uses custom error types defined in `AppError` and handles errors in 
 ## 👤 Authors
 [Rammos Dimitrios](https://github.com/drammos)
 
-## License
+## 📄 License
 
 This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
 
