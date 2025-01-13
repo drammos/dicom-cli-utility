@@ -41,6 +41,18 @@ Command Syntax:
 cargo run -- <path-to-dicom-directory>
 ```
 
+### **Redirecting Only Results**
+To save only the normal program results (stdout) to a file, use this command:
+
+```bash
+cargo run <path-to-dicom-directory> > output.txt
+```
+### **Redirecting Only Errors**
+To save only the errors and warnings (stderr) to a file, use the following command:
+```bash
+cargo run <path-to-dicom-directory> 2> output.txt
+```
+
 #### Example Usage:
 
 ```bash
