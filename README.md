@@ -8,6 +8,16 @@ A command-line utility to traverse directories and process DICOM files in parall
 - **Directory traversal**: Recursively traverses a directory to find `.dcm` files.
 - **Concurrency safety**: Uses `Mutex` to safely handle the shared counter and console output between threads.
 
+## File Traversal Approach
+
+I chose a **multi-threaded approach** using `thread::spawn` instead of a single-threaded `for` loop because it provides significantly faster processing. Specifically, for the files in the `.files` directory, the multi-threaded approach completed in **350ms**, compared to **1.5 seconds** with a single-threaded method.
+
+### Trade-offs:
+- **Performance:** Multi-threading improves speed when processing large numbers of files.
+- **Complexity:** It adds complexity by requiring synchronization mechanisms like `Mutex`.
+- **Resource Utilization:** Multi-threading leverages system resources more efficiently but may introduce overhead when managing threads on systems with limited cores.
+
+
 ## 🛠️ Requirements:
 - **Rust** (latest stable version)
 - **Cargo** (Rust's package manager and build system)
