@@ -1,5 +1,5 @@
-use std::sync::{Arc, Mutex};
 use dicom::core::value::ConvertValueError;
+use std::sync::{Arc, Mutex};
 pub type Result<T> = std::result::Result<T, AppError>;
 
 #[derive(thiserror::Error, Debug)]
